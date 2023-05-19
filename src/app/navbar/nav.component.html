@@ -1,6 +1,20 @@
 <h1>Navbar Component</h1>
-<h2>{{ title }}</h2>
 <p>{{ body }}</p>
 <p>
   <strong>{{ message }}</strong>
+</p>
+
+<div>
+  <app-post
+    [postTitle]="title"
+    (messageEvent)="recieveEvent($event)"
+  ></app-post>
+</div>
+
+<p>
+  <strong>{{ childMsg }}</strong>
+</p>
+
+<p>
+  <strong>{{ childOutput }}</strong>
 </p>
