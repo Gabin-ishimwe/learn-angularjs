@@ -20,7 +20,7 @@ export class PostComponent {
   messageEvent = new EventEmitter<string>();
 
   sendMessage() {
-    this.messageEvent.emit('Message emitted from child post component');
+    this.messageEvent.emit(this.childPost);
     return 'Hello from child method';
   }
 

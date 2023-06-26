@@ -11,4 +11,8 @@ export class AppComponent {
 
   @Input()
   child = '';
+
+  onHandle() {
+    console.log('typing');
+  }
 }

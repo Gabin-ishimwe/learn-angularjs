@@ -23,7 +23,7 @@ export class NavBarComponent implements AfterViewInit {
   }
 
   recieveEvent($event: any) {
-    console.log($event);
+    console.log('event from child', $event);
     this.childOutput = $event;
   }
 }
