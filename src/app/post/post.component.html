@@ -1,6 +1,11 @@
 <p [class.text-red]="isRed">post works!</p>
 <!--class binding-->
-<p [style.backgroundColor]="isRed ? 'red' : 'blue'">Style binding</p>
+<p
+  [style.backgroundColor]="isRed ? 'red' : 'blue'"
+  [style.color]="isRed ? 'blue' : 'red'"
+>
+  Style binding
+</p>
 <!--style binding-->
 
 <h3>{{ postTitle }}</h3>
@@ -8,9 +13,10 @@
 <button (click)="sendMessage()">Send message</button>
 
 <!-- <img src="{{ imageUrl }}" /> -->
-<!-- string interpolation-->
+<!-- string interpolation : used inside tag-->
+
 <!-- <img [src]="imageUrl" /> -->
-<!-- property binding-->
+<!-- property binding : use to bind properties of tags-->
 
 <button
   (click)="buttonClick()"
