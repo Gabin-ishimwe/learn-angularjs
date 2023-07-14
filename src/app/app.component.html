@@ -26,3 +26,10 @@
   [(ngModel)]="dataBinding"
   (keyup)="getDataBinded()"
 />
+
+<h1>{{ dataBinding }}</h1>
+
+<!-- structure directive ngFor-->
+<ul>
+  <li *ngFor="let name of names">{{ name }}</li>
+</ul>

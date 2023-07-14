@@ -40,3 +40,4 @@ export class NavBarComponent implements AfterViewInit, OnInit {
     this.childOutput = $event;
   }
 }
+ 

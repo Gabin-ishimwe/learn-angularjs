@@ -11,6 +11,8 @@ export class AppComponent {
 
   dataBinding: string | undefined = 'init data';
 
+  names: string[] = ['gabin', 'ishimwe', 'alain', 'tuyi'];
+
   @Input()
   child = '';
 
