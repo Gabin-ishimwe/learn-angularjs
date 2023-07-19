@@ -30,6 +30,33 @@
 <h1>{{ dataBinding }}</h1>
 
 <!-- structure directive ngFor-->
-<ul>
-  <li *ngFor="let name of names">{{ name }}</li>
-</ul>
+<!-- *ngIf directive-->
+<div
+  *ngIf="names.length > 0; then postList; else noData"
+  style="background-color: brown"
+></div>
+<ng-template #postList>
+  <ul>
+    <li *ngFor="let name of names; let i = index">{{ name + " " + i }}</li>
+  </ul>
+</ng-template>
+<!-- <div *ngIf="names.length === 0">There is no data...</div> -->
+<ng-template #noData>There is no data...</ng-template>
+
+<!--*ngSwitch directive-->
+<div>
+  <button (click)="onClick('step 1')">step 1</button>
+  <button (click)="onClick('step 2')">step 2</button>
+  <button (click)="onClick('step 3')">step 3</button>
+</div>
+
+<div [ngSwitch]="stepForm">
+  <div *ngSwitchCase="'step 1'">Step 1</div>
+  <div *ngSwitchCase="'step 2'">Step 2</div>
+  <div *ngSwitchCase="'step 3'">Step 3</div>
+  <div *ngSwitchDefault>Something else</div>
+</div>
+
+<h1>pipes</h1>
+<p>{{ admin | uppercase }}</p>
+<p>{{ admin | lowercase }}</p>

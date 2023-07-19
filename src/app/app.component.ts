@@ -10,8 +10,12 @@ export class AppComponent {
   message = 'Message from parent changed';
 
   dataBinding: string | undefined = 'init data';
+  stepForm: string = '';
 
   names: string[] = ['gabin', 'ishimwe', 'alain', 'tuyi'];
+  admin: string = 'Gabin Ishimwe';
+  // names: string[] = [];
+  // index: number | undefined;
 
   @Input()
   child = '';
@@ -26,5 +30,8 @@ export class AppComponent {
 
   getDataBinded() {
     console.log(this.dataBinding);
+  }
+  onClick(step: string) {
+    this.stepForm = step;
   }
 }

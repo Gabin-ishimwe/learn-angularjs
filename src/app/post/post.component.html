@@ -25,3 +25,21 @@
 >
   Event button
 </button>
+
+<h1
+  [ngStyle]="{
+    color: isRed ? 'blue' : 'red',
+    backgroundColor: isRed ? 'red' : 'blue'
+  }"
+>
+  using ngStyle directiry
+</h1>
+
+<h1
+  [ngClass]="{
+    'text-red': false,
+    'bg-blue': true
+  }"
+>
+  using ngClass directive
+</h1>
