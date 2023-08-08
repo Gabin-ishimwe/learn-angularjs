@@ -43,3 +43,11 @@
 >
   using ngClass directive
 </h1>
+
+<button (click)="addPost()">Add POST</button>
+
+<ul style="background-color: aquamarine;">
+  <li *ngFor="let post of posts">
+    {{post.title}}
+  </li>
+</ul>

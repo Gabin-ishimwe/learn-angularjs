@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PostService } from '../services/post.service';
+import { Post } from '../interface/post';
 
 @Component({
   selector: 'app-post',
@@ -19,6 +21,13 @@ export class PostComponent {
   @Output()
   messageEvent = new EventEmitter<string>();
 
+  posts: any = [];
+
+  constructor(private postService:PostService) { // dependency injection
+    // let postService = new PostService();
+    this.posts = postService.postList;
+  }
+
   sendMessage() {
     this.messageEvent.emit(this.childPost);
     return 'Hello from child method';
@@ -26,5 +35,14 @@ export class PostComponent {
 
   buttonClick() {
     console.log('Button click-----');
+  }
+
+  addPost() {
+    const newPost:Post = {
+      id: 10,
+      title: "post 10"
+    }
+
+    this.posts.push(newPost)
   }
 }
