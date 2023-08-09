@@ -51,3 +51,25 @@
     {{post.title}}
   </li>
 </ul>
+
+<!-- <form #formVar="ngForm" (ngSubmit)="submitForm(formVar)">
+  <input name="name" placeholder="name" ngModel #name="ngModel" (change)="getValue(name)"/>
+  <input name="email" placeholder="email" ngModel/>
+  <input name="password" placeholder="password" ngModel/>
+  <button type="submit">submit</button>
+</form> -->
+
+<h1>Reactive form</h1>
+
+<form [formGroup]="form">
+  <input name="name" placeholder="name" formControlName="name">
+  <div *ngIf="name.errors?.required">
+    name is required
+  </div>
+  <div *ngIf="name.errors?.minlength">
+    name min 5 chars
+  </div>
+  <input name="email" placeholder="email" formControlName="email"/>
+  <input name="password" placeholder="password" formControlName="password"/>
+  <button type="submit">submit</button>
+</form>

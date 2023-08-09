@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { Post } from '../interface/post';
+import { NgForm, NgModel, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -23,10 +24,26 @@ export class PostComponent {
 
   posts: any = [];
 
+  form:any
+
   constructor(private postService:PostService) { // dependency injection
     // let postService = new PostService();
     this.posts = postService.postList;
+    this.form = new FormGroup({
+      name: new FormControl("",[
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      email: new FormControl(),
+      password: new FormControl()
+    });
   }
+
+  
+  public get name() {
+    return this.form.get("name")
+  }
+  
 
   sendMessage() {
     this.messageEvent.emit(this.childPost);
@@ -44,5 +61,13 @@ export class PostComponent {
     }
 
     this.posts.push(newPost)
+  }
+
+  submitForm(f:NgForm) {
+    console.log("FormModule ==> ", f)
+  }
+
+  getValue(val:NgModel) {
+    console.log(val)
   }
 }
